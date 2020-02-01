@@ -35,14 +35,10 @@ a, a:visited {
     box-shadow: 0 0 18px 12px rgba(0, 0, 0, 0.7), 0 0 12px 2px rgba(0, 0, 0, 0.2);
 }
 
-.top-section {
-    height: 340px;
-}
-
 .top-section .title {
     font-size: 2rem;
     font-weight: 500;
-    margin: 20px auto 0 40px;
+    margin: 20px auto 12px 40px;
 }
 
 .clock-container {
@@ -92,24 +88,27 @@ a, a:visited {
 }
 
 .map-container {
+    width: 896px;
+}
+
+.map {
     position: relative;
     margin: 10px 0 40px 0;
     background: hsl(26, 20%, 52%) url("/map.png") 50% 50%;
     background-size: cover;
     border: 4px solid hsl(26, 20%, 52%);
     border-radius: 20px;
-    height: 448px;
-    width: 896px;
+    padding-top: 50%;
     box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.2), 0 0 6px 2px rgba(0, 0, 0, 0.06);
     transition: opacity 100ms ease;
 }
 
-.map-container .map-x, .map-container .map-y {
+.map .map-x, .map .map-y {
     position: absolute;
     transition: left 100ms ease-out, top 100ms ease-out;
 }
 
-.map-container .map-x {
+.map .map-x {
     top: 0;
     bottom: 0;
     width: 0;
@@ -117,7 +116,7 @@ a, a:visited {
     border-left: 2px dashed hsl(26, 20%, 72%);
 }
 
-.map-container .map-y {
+.map .map-y {
     left: 0;
     right: 0;
     height: 0;
@@ -125,7 +124,7 @@ a, a:visited {
     border-top: 2px dashed hsl(26, 20%, 72%);
 }
 
-.map-container span {
+.map span {
     position: absolute;
     width: 8px;
     height: 8px;
@@ -134,4 +133,49 @@ a, a:visited {
     background: hsl(26, 20%, 70%);
     border: 1px solid hsl(26, 20%, 32%);
     border-radius: 4px;
+}
+
+
+@media screen and (max-width: 960px) {
+    .top-section .title {
+        font-size: 1.4rem;
+    }
+
+    .clock-content .clock-time {
+        font-size: 4rem;
+    }
+
+    .date-container {
+        font-size: 1.4rem;
+    }
+
+    .timezone-name {
+        font-size: 1.2rem;
+    }
+
+    .map-container {
+        width: 640px;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .top-section .title {
+        font-size: 1.4rem;
+    }
+
+    .clock-content .clock-time {
+        font-size: 4rem;
+    }
+
+    .date-container {
+        font-size: 1.4rem;
+    }
+
+    .timezone-name {
+        font-size: 1.2rem;
+    }
+
+    .map-container {
+        width: 100%;
+    }
 }

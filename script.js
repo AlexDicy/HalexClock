@@ -2,12 +2,18 @@ const clockTime = document.querySelector(".clock-time");
 const dateElement = document.querySelector(".date-container");
 const timezoneName = document.querySelector(".timezone-name");
 const timezoneReset = document.querySelector(".timezone-reset");
-const mapElement = document.querySelector(".map-container");
+const mapElement = document.querySelector(".map");
 const mapX = document.querySelector(".map-x");
 const mapY = document.querySelector(".map-y");
 let mapWidth = mapElement.offsetWidth;
 let mapHeight = mapElement.offsetHeight;
 let mapDisabled = false;
+
+
+window.addEventListener("resize", () => {
+    mapWidth = mapElement.offsetWidth;
+    mapHeight = mapElement.offsetHeight;
+});
 
 function update() {
     let now = moment();
@@ -92,7 +98,6 @@ mapElement.addEventListener("mousemove", event => {
     let top = rect.top + document.body.scrollTop;
     let left = rect.left + document.body.scrollLeft;
 
-    console.log(top, left, event.clientX - left, event.clientY - top);
     let x = event.clientX - left;
     let y = event.clientY - top;
     let px = x / mapWidth;
@@ -114,6 +119,11 @@ mapElement.addEventListener("mousemove", event => {
 });
 
 mapElement.addEventListener("click", event => {
+    if (mapDisabled) {
+        mapDisabled = false;
+        mapElement.style.opacity = 1;
+        return;
+    }
     mapDisabled = true;
     mapElement.style.opacity = 0.7;
 });
