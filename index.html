@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Time Clock with TimeZone selector</title>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64339710-17"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag("js", new Date());
+
+        gtag("config", "UA-64339710-17");
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700|Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <div class="top-section">
+        <a href="/" class="title">What time is it?</a>
+
+
+        <div class="clock-container">
+            <div class="clock-content">
+                <span class="clock-time">05:27:53</span>
+                <span class="small-text">PM</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="date-container"></div>
+
+
+    <div class="bottom-section">
+        <div class="timezone-name"></div>
+        <div class="timezone-reset">Reset Timezone</div>
+        <div class="map-container">
+            <div class="map-x"></div>
+            <div class="map-y"></div>
+        </div>
+    </div>
+
+    <script src="/moment.min.js"></script>
+    <script src="/moment-timezone.min.js"></script>
+    <script src="/script.js"></script>
 </body>
+
 </html>
